@@ -4,10 +4,15 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import store from './store.js'
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(
   <React.StrictMode>
     <Provider store={store}>
     <App />
     </Provider>
   </React.StrictMode>,
+  document.getElementById('root')).render(
 )
+
+
+
+
