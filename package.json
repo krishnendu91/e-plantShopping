@@ -1,20 +1,22 @@
 {
-  "name": "shoppingcart",
+  "name": "https://krishnendu91.github.io/e-plantShopping",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "gh-pages -d build",
     "serve": "vite preview",
     "preview": "npm run build && npm run serve"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "@reduxjs/toolkit": "^1.5.0",
     "react-redux": "^7.2.3"
   },
   "devDependencies": {
-    "vite": "^2.1.5",
-    "@vitejs/plugin-react": "^1.0.5"
+    "@vitejs/plugin-react": "^1.0.5",
+    "gh-pages": "^6.1.1",
+    "vite": "^2.1.5"
   }
 }
