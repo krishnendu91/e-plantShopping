@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from './CartSlice';
 import './ProductList.css';
 import CartItem from './CartItem';
-import { useDispatch } from 'react-redux';
-import { addItem } from './CartSlice';
 
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); 
-    const [addedToCart, setAddedToCart] = useState({});
+    const cartItems = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
+    
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -74,10 +75,12 @@ function ProductList() {
         fontSize: '30px',
         textDecoration: 'none',
     };
+
     const handleCartClick = (e) => {
         e.preventDefault();
         setShowCart(true);
     };
+
     const handlePlantsClick = (e) => {
         e.preventDefault();
         setShowPlants(true);
@@ -88,13 +91,10 @@ function ProductList() {
         e.preventDefault();
         setShowCart(false);
     };
-    const handleAddToCart = (product) => {
-        dispatch(addItem(product));
-        setAddedToCart((prevState) => ({
-           ...prevState,
-           [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
-         }));
-      };
+
+    const handleAddToCart = (plant) => {
+        dispatch(addItem(plant));
+    };
 
     return (
         <div>
@@ -126,6 +126,7 @@ function ProductList() {
                                     <h3>{plant.name}</h3>
                                     <p>{plant.description}</p>
                                     <p>{plant.cost}</p>
+                                    <button onClick={() => handleAddToCart(plant)}>Add to Cart</button>
                                 </div>
                             ))}
                         </div>
