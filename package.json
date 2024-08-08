@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "serve": "vite preview",
     "preview": "npm run build && npm run serve",
-    "homepage": "http://{krishnendu91}.github.io/{e-plantShopping}"
+    "homepage": "http://krishnendu91.github.io/e-plantShopping"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
